@@ -5,4 +5,16 @@
 img {
   border-radius: 50%;
   height: 200px;
+  border: 1px solid black;
+  
+}
+
+button {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: none;  
+  background: green;
+  box-shadow: inset -6px -6px 15px 1px #113f1c;
+  margin-bottom: 40px;
 }

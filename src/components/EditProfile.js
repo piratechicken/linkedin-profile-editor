@@ -8,6 +8,9 @@ const EditProfile = ({
 }) => {
   return (
     <div>
+      <div>
+        <img src={ user.profileImageURL } alt = { `Profile pic for ${ user.firstName } ${ user.lastName }` }/>
+      </div>
       <label>
         Name: {' '}
         <input 
