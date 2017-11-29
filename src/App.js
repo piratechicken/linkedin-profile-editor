@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ShowProfile from './components/ShowProfile';
+import EditProfile from './components/EditProfile';
 import './App.css';
 
 class App extends Component {
@@ -10,12 +12,30 @@ class App extends Component {
     }
   }
 
-  onChangeFirstName = (event) => {
-    const input = event.target
-    const newFirstName = input.value
+  onChangeFirstName = (newName) => {
     this.setState((prevState) => {
       const user = prevState.user
-      user.firstName = newFirstName
+      user.firstName = newName
+      return {
+        user: user
+      }
+    })
+  }
+  
+  onChangeLastName = (newName) => {
+    this.setState((prevState) => {
+      const user = prevState.user
+      user.lastName = newName
+      return {
+        user: user
+      }
+    })
+  }
+  
+  onChangeProfileImageURL = (newURL) => {
+    this.setState((prevState) => {
+      const user = prevState.user
+      user.profileImageURL = newURL
       return {
         user: user
       }
@@ -28,17 +48,24 @@ class App extends Component {
     return (
       <div className="App">
         <h1>LinkedIn Profile Editor</h1>
-        <img src={ user.profileImageURL } alt = { `Profile pic for ${ user.firstName } ${ user.lastName }` }/>
-        <p>Name: { user.firstName } { user.lastName }</p>
-        <label>
-          First name: {' '}
-          <input 
-            value={ user.firstName }
-            onChange={
-              this.onChangeFirstName
-            } 
-          />
-        </label>
+        <ShowProfile 
+          user={ user } 
+        />
+        <EditProfile 
+          user={ user }
+          updateFirstName={
+            (newName) => {
+              this.onChangeFirstName(newName)
+            }}
+          updateLastName={
+            (newName) => {
+            this.onChangeLastName(newName)
+          }}
+          updateURL={
+            (newURL) => {
+            this.onChangeProfileImageURL(newURL)
+          }}
+        />
       </div>
     ); 
   }
