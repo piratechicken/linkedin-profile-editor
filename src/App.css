@@ -4,9 +4,7 @@
 
 img {
   border-radius: 50%;
-  height: 200px;
-  border: 1px solid black;
-  
+  height: 200px;  
 }
 
 button {
@@ -17,4 +15,7 @@ button {
   background: green;
   box-shadow: inset -6px -6px 15px 1px #113f1c;
   margin-bottom: 40px;
+}
+button:hover {
+  background: rgb(2, 165, 2);  
 }

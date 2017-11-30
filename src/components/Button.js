@@ -2,13 +2,13 @@ import React from 'react'
 
 const ToggleButton = ({
   buttonTitle,
-  onToggleView
+  buttonAction
 }) => {
   return (
     <button type='button'
       onClick={
         (event) => {
-          onToggleView()
+          buttonAction()
         }
       }
     >

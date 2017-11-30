@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ShowProfile from './components/ShowProfile';
 import EditProfile from './components/EditProfile';
-import ToggleButton from './components/ToggleButton';
+import Button from './components/Button';
 import './App.css';
 
 function capitalizeFirstLetter(string) {
@@ -75,14 +75,14 @@ class App extends Component {
   render() {
     const user = this.state.user
     const viewEdit = this.state.viewEdit
-    const buttonTitle = viewEdit ? 'Click to view profile' : 'Click to edit profile'
+    const toggleButtonTitle = viewEdit ? 'Click to view profile' : 'Click to edit profile'
 
     return (
       <div className="App">
         <h1>LinkedIn Profile Editor</h1>
-        <ToggleButton
-          buttonTitle = { buttonTitle }
-          onToggleView={
+        <Button
+          buttonTitle = { toggleButtonTitle }
+          buttonAction={
             () => {
               this.toggleView()
             }
@@ -110,14 +110,14 @@ class App extends Component {
             }}
           />
           }
-          <button 
-            type='button'
-            onClick={
-                this.onRandomise
+          <Button 
+            buttonTitle = 'Random!'
+            buttonAction={
+              () => {
+              this.onRandomise()
               }
-          >
-            Click for random
-          </button>
+            }
+          />
       </div>
     ); 
   }
